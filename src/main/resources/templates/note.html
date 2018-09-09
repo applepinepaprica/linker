@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: head">
+<title id="pageTitle">Note | Linker</title>
+</head>
+<body>
+	<header th:insert="fragments.html :: navbar"> </header>
+	<div class="container">
+		<h2 th:text="${note.name}"></h2>
+		<p th:text="${note.text}" />
+		<p><a
+				th:href="@{__${#httpServletRequest.requestURL}__}"
+				th:text="@{__${#httpServletRequest.requestURL}__}"></a>
+		</p>
+		<p th:text="'Total number of views: ' + ${note.NumberOfViews}" />
+		<p th:text="'Max number of views: ' + ${note.maxNumberOfViews}" />
+		<p th:if="${note.getFile() != null}">
+			<a th:href="'/url/' + ${note.url} + '/' + ${note.file.name}"
+				th:text="${note.file.name}"></a>
+		</p>
+	</div>
+</body>
+</html>

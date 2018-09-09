@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: head">
+<title id="pageTitle">Result | Linker</title>
+</head>
+<body>
+	<header th:insert="fragments.html :: navbar"> </header>
+	<div class="container">
+		<h2
+			th:text="'Note &ldquo;' + ${note.name} + '&rdquo; successfully created'"></h2>
+		<p>You can find it there:</p>
+		<p>
+			<a
+				th:href="@{__${#httpServletRequest.requestURL}__url/__${note.url}__}"
+				th:text="@{__${#httpServletRequest.requestURL}__url/__${note.url}__}"></a>
+		</p>
+	</div>
+</body>
+</html>

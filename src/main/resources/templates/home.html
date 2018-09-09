@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: head">
+<title id="pageTitle">Add note | Linker</title>
+</head>
+<body>
+	<header th:insert="fragments.html :: navbar"> </header>
+	<div class="container">
+		<h2>Note</h2>
+		<form action="#" th:action="@{/}" th:object="${note}" method="post"
+			enctype="multipart/form-data">
+			<p>
+				<input type="text" class="form-control" th:field="*{name}"
+					placeholder="Name" required="true" autofocus="true" maxlength="100" />
+				<small class="text-danger" th:if="${#fields.hasErrors('name')}"
+					th:errors="*{name}"></small>
+			</p>
+			<p>
+				<textarea class="form-control" th:field="*{text}" placeholder="Text"
+					rows="5" maxlength="5000"></textarea>
+				<small class="text-danger" th:if="${#fields.hasErrors('text')}"
+					th:errors="*{text}"></small>
+			</p>
+			<p>
+				<input type="number" class="form-control"
+					th:field="*{maxNumberOfViews}" placeholder="Max number of views"
+					required="true" min="1" max="65535" /> <small class="text-danger"
+					th:if="${#fields.hasErrors('maxNumberOfViews')}"
+					th:errors="*{maxNumberOfViews}"></small>
+					<small class="text-muted">(Если к заметке прикреплен файл, ограничивает количество скачиваний файла, при отсутствии файла ограничивает количество просмотров заметки)</small>
+			</p>
+			<p>
+				<input type="file" class="form-control" name="fileUpload"
+					id="fileUpload" /> <small class="text-danger"
+					th:if="${#fields.hasErrors('global')}" th:errors="*{global}"></small>
+			</p>
+			<p>
+				<input type="submit" class="btn btn-primary" value="Submit" />
+			</p>
+		</form>
+	</div>
+</body>
+</html>

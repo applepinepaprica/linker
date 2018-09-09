@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: head">
+<title id="pageTitle">Login | Linker</title>
+</head>
+<body>
+	<header th:insert="fragments.html :: navbar"> </header>
+	<div class="container">
+		<h2>Login</h2>
+		<form th:action="@{/login}" th:object="${user}" method="post">
+			<p>
+				<input type="text" class="form-control" th:field="*{username}"
+					placeholder="UserName" required="true" autofocus="true"
+					maxlength="20" />
+			</p>
+			<p>
+				<input type="password" class="form-control" th:field="*{password}"
+					placeholder="Password" required="true" minlength="8" maxlength="20" />
+				<small th:if="${param.error != null}" class="text-danger">Invalid
+					credentials.</small>
+			</p>
+			<p>
+				Don't have an account? <a href="/registration" th:text="'Sign up.'"></a>
+			</p>
+			<p>
+				<input type="submit" class="btn btn-primary" value="Sign In" />
+			</p>
+		</form>
+	</div>
+</body>
+</html>

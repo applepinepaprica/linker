@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: head">
+<title id="pageTitle">List | Linker</title>
+</head>
+<body>
+	<header th:insert="fragments.html :: navbar"> </header>
+	<div class="container" th:if="${not #lists.isEmpty(notes)}">
+		<h2>Notes</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Url</th>
+					<th scope="col">Number of views</th>
+					<th scope="col">Max number of views</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="note : ${notes}">
+					<th scope="row" th:text="${note.name}" />
+					<td><a th:href="'/url/' + ${note.url}" th:text="${note.url}"></a></td>
+					<td th:text="${note.numberOfViews}" />
+					<td th:text="${note.maxNumberOfViews}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container" th:if="${#lists.isEmpty(notes)}">
+		<h2>It seems like you don't have any notes</h2>
+		<p>
+			You can add it <a href="/">here.</a>
+		</p>
+	</div>
+</body>
+</html>
