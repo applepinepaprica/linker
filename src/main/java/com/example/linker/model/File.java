@@ -2,6 +2,7 @@ package com.example.linker.model;
 
 import java.util.Arrays;
 
+import javax.activation.MimetypesFileTypeMap;
 import javax.persistence.*;
 
 @Entity
@@ -72,5 +73,12 @@ public class File {
 		if (numberOfViews != other.numberOfViews)
 			return false;
 		return true;
+	}
+
+	public String getType() {
+		MimetypesFileTypeMap mtftp = new MimetypesFileTypeMap();
+		mtftp.addMimeTypes("image png jpeg jpg gif");
+		String mimetype = mtftp.getContentType(new java.io.File(name));
+		return mimetype.split("/")[0];
 	}
 }

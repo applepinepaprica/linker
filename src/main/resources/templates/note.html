@@ -7,16 +7,20 @@
 	<header th:insert="fragments.html :: navbar"> </header>
 	<div class="container">
 		<h2 th:text="${note.name}"></h2>
-		<p th:text="${note.text}" />
+		<p th:text="${note.text}" ></p>
 		<p><a
 				th:href="@{__${#httpServletRequest.requestURL}__}"
 				th:text="@{__${#httpServletRequest.requestURL}__}"></a>
 		</p>
-		<p th:text="'Total number of views: ' + ${note.NumberOfViews}" />
-		<p th:text="'Max number of views: ' + ${note.maxNumberOfViews}" />
+		<p th:text="'Total number of views: ' + ${note.NumberOfViews}" ></p>
+		<p th:text="'Max number of views: ' + ${note.maxNumberOfViews}" ></p>
 		<p th:if="${note.getFile() != null}">
-			<a th:href="'/url/' + ${note.url} + '/' + ${note.file.name}"
-				th:text="${note.file.name}"></a>
+			<div th:switch="${note.file.type}">
+				<p th:case="'image'"><img th:src="'/url/' + ${note.url} + '/' + ${note.file.name}"
+										  th:alt="${note.file.name}"/></p>
+				<p th:case="*"><a th:href="'/url/' + ${note.url} + '/' + ${note.file.name}"
+				th:text="${note.file.name}"></a></p>
+			</div>
 		</p>
 	</div>
 </body>
