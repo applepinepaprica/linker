@@ -8,10 +8,6 @@
 	<div class="container">
 		<h2 th:text="${note.name}"></h2>
 		<p th:text="${note.text}" ></p>
-		<p><a
-				th:href="@{__${#httpServletRequest.requestURL}__}"
-				th:text="@{__${#httpServletRequest.requestURL}__}"></a>
-		</p>
 		<p th:text="'Total number of views: ' + ${note.NumberOfViews}" ></p>
 		<p th:text="'Max number of views: ' + ${note.maxNumberOfViews}" ></p>
 		<div th:if="${note.getFile() != null}">
