@@ -12,11 +12,11 @@ _Cайт для хранения заметок и файлов с возмож�
 
 ## Скриншоты:
 * Создание заметки:
-![](https://github.com/applepinepaprica/linker/images/image3887.png)
+![](https://github.com/applepinepaprica/linker/tree/master/images/image3887.png)
 * Результат:
-![](https://github.com/applepinepaprica/linker/images/image3898.png)
-![](https://github.com/applepinepaprica/linker/images/image3909.png)
+![](https://github.com/applepinepaprica/linker/tree/master/images/image3898.png)
+![](https://github.com/applepinepaprica/linker/tree/master/images/image3909.png)
 * Если достигнуто максимальное количество показов:
-![](https://github.com/applepinepaprica/linker/images/image3920.png)
+![](https://github.com/applepinepaprica/linker/tree/master/images/image3920.png)
 * После регистрации на сайте и создания заметок под логином есть возможность просмотреть список заметок и количество их просмотров:
-![](https://github.com/applepinepaprica/linker/images/image3931.png)
+![](https://github.com/applepinepaprica/linker/tree/master/images/image3931.png)
