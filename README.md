@@ -12,15 +12,22 @@ _Cайт для хранения заметок и файлов с возмож�
 
 ### Запуск проекта:
 
-1. Прописать данные БД (MySQL) в /src/main/resources/application.properties;
+1. Прописать данные БД (MySQL) в /src/main/resources/application.properties, к примеру:
+~~~~
+spring.datasource.url=jdbc:mysql://localhost:3306/DB?useUnicode=yes&characterEncoding=UTF-8
+spring.datasource.username=root
+spring.datasource.password=password
+~~~~
 
-2. Создать таблицы, используя команды из /db/db.sql;
+2. Создать таблицы в БД, используя команды из /db/db.sql;
 
 3. Установить Maven, если он еще не установлен, и запустить проект из папки, в которой находится проект:
 ~~~~
-$ cd $HOME_PROJECT
-$ mvn spring-boot:run
+cd $HOME_PROJECT
+mvn spring-boot:run
 ~~~~
+
+4. По дефолту сайт будет доступен по порту 8080 (http://localhost:8080).
 
 ### Скриншоты:
 
