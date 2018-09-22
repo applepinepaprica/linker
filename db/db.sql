@@ -1,4 +1,9 @@
+DROP TABLE IF EXISTS note;
+DROP TABLE IF EXISTS file;
+DROP TABLE IF EXISTS user_role;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS role;
+
 CREATE TABLE `user` (
 	`user_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`username` varchar(20) NOT NULL,
@@ -6,14 +11,12 @@ CREATE TABLE `user` (
 	UNIQUE(`username`)
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS role;
 CREATE TABLE `role` (
 	`role_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`name` varchar(50) NOT NULL,
 	UNIQUE(`name`)
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS user_role;
 CREATE TABLE `user_role` (
   `user_id` int NOT NULL,
   `role_id` int NOT NULL,
@@ -24,9 +27,6 @@ CREATE TABLE `user_role` (
 
 INSERT INTO role VALUES (1, 'USER');
 INSERT INTO role VALUES (2, 'PRIVELEGED_USER');
-
-DROP TABLE IF EXISTS note;
-DROP TABLE IF EXISTS file;
 
 CREATE TABLE file(
 	`file_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
